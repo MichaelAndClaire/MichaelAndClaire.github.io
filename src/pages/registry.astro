@@ -1,0 +1,25 @@
+---
+import PageHero from '../components/PageHero.astro';
+import { wedding } from '../data/wedding';
+import SiteLayout from '../layouts/SiteLayout.astro';
+---
+
+<SiteLayout title="Registry">
+  <PageHero
+    eyebrow="Registry"
+    title="Your presence is already the best part."
+    copy="Registry details will go here when they are ready. For now, this page keeps the link structure in place."
+  />
+
+  <section class="bg-white py-16 sm:py-20">
+    <div class="section-shell grid gap-5 md:grid-cols-2">
+      {wedding.registryLinks.map((registry) => (
+        <a class="rounded-md bg-mist p-6 text-ink no-underline shadow-soft transition hover:-translate-y-1 sm:p-8" href={registry.href}>
+          <p class="eyebrow">Gift link</p>
+          <h2 class="mt-4 font-display text-3xl font-bold">{registry.label}</h2>
+          <p class="mt-4 leading-7 text-ink/75">{registry.description}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+</SiteLayout>

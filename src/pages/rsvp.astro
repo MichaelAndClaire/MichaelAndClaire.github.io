@@ -1,0 +1,71 @@
+---
+import PageHero from '../components/PageHero.astro';
+import { wedding } from '../data/wedding';
+import SiteLayout from '../layouts/SiteLayout.astro';
+---
+
+<SiteLayout title="RSVP">
+  <PageHero
+    eyebrow="RSVP"
+    title="Tell us if you'll be there."
+    copy="Use the invite code from your invitation. It is not a password; it just helps us match responses to our guest list."
+  />
+
+  <section class="bg-linen py-16 sm:py-20">
+    <div class="section-shell max-w-3xl">
+      <form class="rounded-md bg-white p-6 shadow-soft sm:p-8" action={wedding.formspreeEndpoint} method="POST">
+        <input type="hidden" name="_subject" value="Wedding RSVP" />
+
+        <div class="grid gap-6 md:grid-cols-2">
+          <label class="block font-bold">
+            Name
+            <input class="input-field" type="text" name="name" autocomplete="name" required />
+          </label>
+
+          <label class="block font-bold">
+            Email
+            <input class="input-field" type="email" name="email" autocomplete="email" required />
+          </label>
+
+          <label class="block font-bold">
+            Invite code
+            <input class="input-field" type="text" name="invite_code" autocomplete="off" required />
+          </label>
+
+          <label class="block font-bold">
+            Attending?
+            <select class="input-field" name="attending" required>
+              <option value="">Choose one</option>
+              <option value="yes">Yes, happily</option>
+              <option value="no">Sadly, no</option>
+            </select>
+          </label>
+
+          <label class="block font-bold">
+            Guest count
+            <input class="input-field" type="number" name="guest_count" min="1" max="8" value="1" required />
+          </label>
+
+          <label class="block font-bold">
+            Meal preference
+            <select class="input-field" name="meal_preference">
+              {wedding.mealChoices.map((meal) => <option value={meal}>{meal}</option>)}
+            </select>
+          </label>
+        </div>
+
+        <label class="mt-6 block font-bold">
+          Allergies or dietary notes
+          <textarea class="input-field min-h-28" name="allergies"></textarea>
+        </label>
+
+        <label class="mt-6 block font-bold">
+          Notes
+          <textarea class="input-field min-h-32" name="notes"></textarea>
+        </label>
+
+        <button class="button-primary mt-8 w-full sm:w-auto" type="submit">Submit RSVP</button>
+      </form>
+    </div>
+  </section>
+</SiteLayout>

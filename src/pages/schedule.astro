@@ -1,0 +1,29 @@
+---
+import PageHero from '../components/PageHero.astro';
+import { wedding } from '../data/wedding';
+import SiteLayout from '../layouts/SiteLayout.astro';
+---
+
+<SiteLayout title="Schedule">
+  <PageHero
+    eyebrow="Wedding day"
+    title="The loose plan for a very full day."
+    copy="Times are placeholders for now, but this page is ready for the final ceremony, dinner, and dancing details."
+  />
+
+  <section class="bg-linen py-16 sm:py-20">
+    <div class="section-shell">
+      <div class="grid gap-5">
+        {wedding.schedule.map((event) => (
+          <article class="grid gap-4 rounded-md border border-ink/10 bg-white p-6 shadow-soft md:grid-cols-[9rem_1fr] md:p-8">
+            <p class="font-display text-3xl font-bold text-coral">{event.time}</p>
+            <div>
+              <h2 class="font-display text-3xl font-bold">{event.title}</h2>
+              <p class="mt-3 leading-7 text-ink/75">{event.detail}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</SiteLayout>

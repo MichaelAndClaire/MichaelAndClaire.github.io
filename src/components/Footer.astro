@@ -1,0 +1,19 @@
+---
+import { wedding } from '../data/wedding';
+---
+
+<footer class="border-t border-ink/10 bg-white">
+  <div class="section-shell flex flex-col gap-6 py-10 md:flex-row md:items-center md:justify-between">
+    <div>
+      <p class="font-display text-2xl font-bold">{wedding.couple.firstNames}</p>
+      <p class="mt-1 text-sm text-ink/70">{wedding.date.display} in {wedding.location.cityState}</p>
+    </div>
+    <div class="flex flex-wrap gap-3">
+      {wedding.navItems.map((item) => (
+        <a class="rounded-md px-3 py-2 text-sm font-bold text-ink/75 no-underline hover:bg-mist" href={item.href}>
+          {item.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</footer>

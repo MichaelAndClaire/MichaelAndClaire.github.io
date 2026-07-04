@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-linen font-sans text-ink antialiased;
+  }
+
+  a {
+    @apply underline-offset-4;
+  }
+
+  ::selection {
+    @apply bg-butter text-ink;
+  }
+}
+
+@layer components {
+  .section-shell {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply text-xs font-bold uppercase tracking-[0.22em] text-coral;
+  }
+
+  .focus-ring {
+    @apply focus:outline-none focus-visible:ring-4 focus-visible:ring-butter/70;
+  }
+
+  .button-primary {
+    @apply focus-ring inline-flex min-h-12 items-center justify-center rounded-md bg-ink px-5 py-3 text-sm font-bold text-white no-underline shadow-soft transition hover:-translate-y-0.5 hover:bg-fern;
+  }
+
+  .button-secondary {
+    @apply focus-ring inline-flex min-h-12 items-center justify-center rounded-md border-2 border-ink px-5 py-3 text-sm font-bold text-ink no-underline transition hover:-translate-y-0.5 hover:bg-mist;
+  }
+
+  .input-field {
+    @apply focus-ring mt-2 w-full rounded-md border border-ink/20 bg-white px-4 py-3 text-base text-ink shadow-sm;
+  }
+}

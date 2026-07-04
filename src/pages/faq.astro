@@ -1,0 +1,26 @@
+---
+import PageHero from '../components/PageHero.astro';
+import { wedding } from '../data/wedding';
+import SiteLayout from '../layouts/SiteLayout.astro';
+---
+
+<SiteLayout title="FAQ">
+  <PageHero
+    eyebrow="FAQ"
+    title="Answers before the group chat gets powerful."
+    copy="The answers here are editable placeholders for now and can be updated as the plan gets more specific."
+  />
+
+  <section class="bg-linen py-16 sm:py-20">
+    <div class="section-shell max-w-4xl">
+      <div class="grid gap-4">
+        {wedding.faqs.map((faq) => (
+          <details class="rounded-md border border-ink/10 bg-white p-6 shadow-soft">
+            <summary class="cursor-pointer font-display text-2xl font-bold">{faq.question}</summary>
+            <p class="mt-4 leading-7 text-ink/75">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+</SiteLayout>

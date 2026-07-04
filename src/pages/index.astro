@@ -1,0 +1,76 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { wedding } from '../data/wedding';
+---
+
+<SiteLayout title="Michael & Claire" description="Wedding details, RSVP, travel, registry, and FAQ for Michael and Claire.">
+  <section
+    class="relative min-h-[calc(86svh-5rem)] overflow-hidden bg-cover bg-center"
+    style={`background-image: linear-gradient(90deg, rgba(255, 248, 239, 0.96), rgba(255, 248, 239, 0.72), rgba(255, 248, 239, 0.1)), url('${wedding.hero.image}')`}
+    aria-label={wedding.hero.alt}
+  >
+    <div class="section-shell flex min-h-[calc(86svh-5rem)] items-center py-14">
+      <div class="max-w-2xl">
+        <p class="eyebrow">We're getting married</p>
+        <h1 class="mt-5 font-display text-5xl font-bold leading-none text-ink sm:text-7xl">
+          {wedding.couple.firstNames}
+        </h1>
+        <p class="mt-6 text-xl font-semibold text-ink/80">{wedding.date.display}</p>
+        <p class="mt-2 text-lg text-ink/75">{wedding.location.venueName} · {wedding.location.cityState}</p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a class="button-primary" href="/rsvp">Send RSVP</a>
+          <a class="button-secondary" href="/schedule">See Schedule</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 sm:py-20">
+    <div class="section-shell grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+      <div>
+        <p class="eyebrow">The plan</p>
+        <h2 class="mt-4 font-display text-4xl font-bold leading-tight">A full weekend, one very good reason.</h2>
+      </div>
+      <p class="text-lg leading-8 text-ink/75">
+        We are collecting the details here so everyone has one place to find the schedule, travel notes, registry links,
+        and RSVP form. A few things are still placeholders for now, but the structure is ready for the real details as
+        soon as they are confirmed.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-mist py-16 sm:py-20">
+    <div class="section-shell">
+      <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p class="eyebrow">Start here</p>
+          <h2 class="mt-4 font-display text-4xl font-bold">The important bits</h2>
+        </div>
+        <a class="button-secondary" href="/faq">Read FAQ</a>
+      </div>
+
+      <div class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <a class="rounded-md bg-white p-6 text-ink no-underline shadow-soft transition hover:-translate-y-1" href="/schedule">
+          <p class="text-sm font-bold uppercase tracking-[0.16em] text-coral">When</p>
+          <h3 class="mt-3 font-display text-2xl font-bold">Schedule</h3>
+          <p class="mt-3 text-sm leading-6 text-ink/70">Ceremony, dinner, dancing, and the little moments between.</p>
+        </a>
+        <a class="rounded-md bg-white p-6 text-ink no-underline shadow-soft transition hover:-translate-y-1" href="/venue-travel">
+          <p class="text-sm font-bold uppercase tracking-[0.16em] text-coral">Where</p>
+          <h3 class="mt-3 font-display text-2xl font-bold">Venue & Travel</h3>
+          <p class="mt-3 text-sm leading-6 text-ink/70">Venue, hotel, airport, parking, and transportation notes.</p>
+        </a>
+        <a class="rounded-md bg-white p-6 text-ink no-underline shadow-soft transition hover:-translate-y-1" href="/rsvp">
+          <p class="text-sm font-bold uppercase tracking-[0.16em] text-coral">Reply</p>
+          <h3 class="mt-3 font-display text-2xl font-bold">RSVP</h3>
+          <p class="mt-3 text-sm leading-6 text-ink/70">Tell us if you can make it, plus meal and allergy details.</p>
+        </a>
+        <a class="rounded-md bg-white p-6 text-ink no-underline shadow-soft transition hover:-translate-y-1" href="/registry">
+          <p class="text-sm font-bold uppercase tracking-[0.16em] text-coral">Gifts</p>
+          <h3 class="mt-3 font-display text-2xl font-bold">Registry</h3>
+          <p class="mt-3 text-sm leading-6 text-ink/70">Registry links will live here once everything is ready.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+</SiteLayout>
