@@ -10,7 +10,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
       {wedding.couple.shortNames}
     </a>
 
-    <div class="hidden items-center gap-2 lg:flex">
+    <div class="hidden items-center gap-1 lg:flex">
       {wedding.navItems.map((item) => {
         const itemPath = item.href.replace(/\/$/, '') || '/';
         const isActive = itemPath === currentPath;
@@ -18,7 +18,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
           <a
             href={item.href}
             class:list={[
-              'rounded-md px-3 py-2 text-sm font-bold no-underline transition hover:bg-mist',
+            'rounded-md px-2 py-2 text-xs font-bold no-underline transition hover:bg-mist xl:px-3 xl:text-sm',
               isActive ? 'bg-petal text-ink' : 'text-ink/75',
             ]}
             aria-current={isActive ? 'page' : undefined}
