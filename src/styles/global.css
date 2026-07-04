@@ -34,6 +34,10 @@
   .eyebrow {
     @apply text-lg font-bold uppercase tracking-[0.22em] text-coral;
   }
+  
+  .section-h2 {
+  @apply font-display text-lg font-normal text-ink;
+  }
 
   .focus-ring {
     @apply focus:outline-none focus-visible:ring-4 focus-visible:ring-butter/70;

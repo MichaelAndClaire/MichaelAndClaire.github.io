@@ -1,0 +1,30 @@
+---
+import PageHero from '../components/PageHero.astro';
+import { wedding } from '../data/wedding';
+import SiteLayout from '../layouts/SiteLayout.astro';
+---
+
+<SiteLayout title="Colorado Favorites">
+  <PageHero
+    eyebrow="Colorado favorites"
+    title="Places we love if you are making a trip of it."
+    copy="Food, hikes, and Front Range stops for anyone arriving early, staying late, or looking for a very good excuse to wander."
+  />
+
+  <section class="bg-linen py-16 sm:py-20">
+    <div class="section-shell">
+      <div class="grid gap-5 md:grid-cols-3">
+        {wedding.coloradoFavorites.map((group) => (
+          <article class="rounded-md bg-white p-6 shadow-soft sm:p-8">
+            <p class="eyebrow">{group.region}</p>
+            <ul class="mt-5 grid gap-3">
+              {group.items.map((item) => (
+                <li class="rounded-md bg-mist px-4 py-3 font-display text-xl font-bold text-ink">{item}</li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</SiteLayout>
