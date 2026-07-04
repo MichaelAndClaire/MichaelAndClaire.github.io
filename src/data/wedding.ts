@@ -17,7 +17,7 @@ export const wedding = {
     image: '/images/hero-placeholder.png',
     alt: 'Illustrated outdoor wedding details with flowers and warm afternoon light',
   },
-  formspreeEndpoint: 'https://formspree.io/f/YOUR_FORM_ID',
+  formspreeEndpoint: 'https://formspree.io/f/mojoygjk',
   navItems: [
     { href: '/', label: 'Home' },
     { href: '/schedule', label: 'Schedule' },
