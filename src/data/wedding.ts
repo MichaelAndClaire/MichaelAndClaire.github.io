@@ -17,6 +17,11 @@ export const wedding = {
     image: '/images/hero-placeholder.png',
     alt: 'Illustrated outdoor wedding details with flowers and warm afternoon light',
   },
+  accessGate: {
+    enabled: true,
+    storageKey: 'michael-claire-wedding-access',
+    inviteCodeHash: 'f481b8701ea99f188064b76c8f6710c5088fd0305d9ede52772e1847a591bf0a',
+  },
   formspreeEndpoint: 'https://formspree.io/f/mojoygjk',
   navItems: [
     { href: '/', label: 'Home' },
