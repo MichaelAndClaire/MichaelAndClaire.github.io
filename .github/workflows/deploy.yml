@@ -12,7 +12,7 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -35,6 +35,11 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Prepare Pages artifact
+        run: |
+          find dist -name ".DS_Store" -delete
+          chmod -R u+rwX,go+rX dist
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
