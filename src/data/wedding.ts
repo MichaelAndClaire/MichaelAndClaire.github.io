@@ -1,3 +1,12 @@
+const phoneGalleryImages = Array.from({ length: 41 }, (_, index) => {
+  const photoNumber = index + 1;
+
+  return {
+    src: `/images/gallery/phone-pics/phone-${String(photoNumber).padStart(2, '0')}.jpg`,
+    alt: `Michael and Claire phone photo ${photoNumber}`,
+  };
+});
+
 export const wedding = {
   couple: {
     firstNames: 'Michael & Claire',
@@ -84,13 +93,7 @@ export const wedding = {
     photographer: 'Boulder Mouse Photography / Anya Rudaya',
     credit:
       'A huge thank you to Boulder Mouse Photography and Anya Rudaya for helping capture this season of our lives so beautifully.',
-    images: [
-      {
-        src: '/images/mountain-lodge-illustrated-hero.jpg',
-        alt: 'Illustrated mountain lodge wedding scene',
-        caption: 'More photos coming soon.',
-      },
-    ],
+    images: phoneGalleryImages,
   },
   coloradoFavorites: [
     {
