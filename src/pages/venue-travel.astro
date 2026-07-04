@@ -17,19 +17,13 @@ import SiteLayout from '../layouts/SiteLayout.astro';
         <p class="mt-4 text-lg leading-8 text-ink/75">
         DIA is the closest major airport, about 1.5 hours away from Estes Park. You can rent a car or book a shuttle to take you to Estes Park. Estes Park Shuttle is the only shuttle service we currently know of. Check back soon for our Estes Park Shuttle 10% discount code!
         </p>
-  
-    <div class="section-shell grid gap-10 lg:grid-cols-[1fr_1fr]">
-      <div>
-        <p class="eyebrow">Venue</p>
-        <h2 class="section-h2">{wedding.location.venueName}</h2>
-        <p class="mt-4 text-lg leading-8 text-ink/75">{wedding.location.address}</p>
-        <a class="button-primary mt-8" href={wedding.location.mapUrl}>Open Map</a>
-      </div>
 
       <div class="rounded-md bg-mist p-6 sm:p-8">
-        <p class="eyebrow">Hotel</p>
-        <h2 class="section-h2">{wedding.travel.hotel.name}</h2>
-        <p class="mt-4 leading-7 text-ink/75">{wedding.travel.hotel.detail}</p>
+        <p class="eyebrow">Hotels</p>
+        <h2 class="section-h2">No Hotel Block. Staying at the Y recommended! </h2>
+        <p class="mt-4 text-lg leading-8 text-ink/75">
+        We will not have a hotel block. We recommend staying at the YMCA not only for its proximity to our venue, but for the beautiful location surrounded by the National Park and many fun activities offered. However, if staying at the Y is not your preference, some good options in Estes Park include the iconic Stanley Hotel, the Outpost, or the Trailhead Lodge. Longmont or Loveland have many more affordable options, but are each about 45-1hr away by car.
+        </p>
         <a class="button-secondary mt-8" href={wedding.travel.hotel.bookingUrl}>Search Hotels</a>
       </div>
     </div>
