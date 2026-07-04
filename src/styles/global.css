@@ -32,7 +32,7 @@
   }
 
   .eyebrow {
-    @apply text-xs font-bold uppercase tracking-[0.22em] text-coral;
+    @apply text-lg font-bold uppercase tracking-[0.22em] text-coral;
   }
 
   .focus-ring {
