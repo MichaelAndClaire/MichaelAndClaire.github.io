@@ -11,6 +11,8 @@ const { accessGate } = wedding;
       class="fixed inset-0 z-50 flex min-h-svh items-center justify-center bg-linen px-5 py-10"
       data-invite-hash={accessGate.inviteCodeHash}
       data-storage-key={accessGate.storageKey}
+      data-endpoint-storage-key={accessGate.endpointStorageKey}
+      data-encrypted-endpoint={accessGate.encryptedFormspreeEndpoint}
     >
       <div class="w-full max-w-md rounded-md border border-ink/10 bg-white p-6 shadow-soft sm:p-8">
         <p class="eyebrow">Private celebration</p>
@@ -53,6 +55,8 @@ const { accessGate } = wedding;
 
         const expectedHash = gate.dataset.inviteHash;
         const storageKey = gate.dataset.storageKey;
+        const endpointStorageKey = gate.dataset.endpointStorageKey;
+        const encryptedEndpoint = gate.dataset.encryptedEndpoint;
 
         const showSite = () => {
           gate.classList.add('hidden');
@@ -199,7 +203,58 @@ const { accessGate } = wedding;
           return sha256Fallback(bytes);
         };
 
-        if (storageKey && window.localStorage.getItem(storageKey) === 'unlocked') {
+        const base64ToBytes = (value) => Uint8Array.from(window.atob(value), (char) => char.charCodeAt(0));
+
+        const hexToBytes = (hex) => {
+          const bytes = new Uint8Array(hex.length / 2);
+
+          for (let index = 0; index < bytes.length; index += 1) {
+            bytes[index] = Number.parseInt(hex.slice(index * 2, index * 2 + 2), 16);
+          }
+
+          return bytes;
+        };
+
+        const decryptEndpoint = async (code) => {
+          const cipherBytes = base64ToBytes(encryptedEndpoint || '');
+          const plainBytes = new Uint8Array(cipherBytes.length);
+          let offset = 0;
+          let counter = 0;
+
+          while (offset < cipherBytes.length) {
+            const streamHash = await sha256Hex(encodeUtf8(`${code}:${counter}`));
+            const streamBytes = hexToBytes(streamHash);
+
+            for (let index = 0; index < streamBytes.length && offset < cipherBytes.length; index += 1) {
+              plainBytes[offset] = cipherBytes[offset] ^ streamBytes[index];
+              offset += 1;
+            }
+
+            counter += 1;
+          }
+
+          return String.fromCharCode(...plainBytes);
+        };
+
+        const rememberUnlock = async (code) => {
+          const endpoint = await decryptEndpoint(code);
+
+          if (endpointStorageKey) {
+            window.localStorage.setItem(endpointStorageKey, endpoint);
+          }
+
+          if (storageKey) {
+            window.localStorage.setItem(storageKey, 'unlocked');
+          }
+
+          window.dispatchEvent(new CustomEvent('access-gate:unlocked', { detail: { endpoint } }));
+        };
+
+        if (
+          storageKey &&
+          window.localStorage.getItem(storageKey) === 'unlocked' &&
+          (!endpointStorageKey || window.localStorage.getItem(endpointStorageKey))
+        ) {
           showSite();
           return;
         }
@@ -213,9 +268,7 @@ const { accessGate } = wedding;
           const hash = await sha256Hex(bytes);
 
           if (hash === expectedHash) {
-            if (storageKey) {
-              window.localStorage.setItem(storageKey, 'unlocked');
-            }
+            await rememberUnlock(code);
             showSite();
             return;
           }

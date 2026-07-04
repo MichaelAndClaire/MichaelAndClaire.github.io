@@ -13,7 +13,12 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 
   <section class="bg-linen py-16 sm:py-20">
     <div class="section-shell max-w-3xl">
-      <form class="rounded-md bg-white p-6 shadow-soft sm:p-8" action={wedding.formspreeEndpoint} method="POST">
+      <form
+        id="rsvp-form"
+        class="rounded-md bg-white p-6 shadow-soft sm:p-8"
+        method="POST"
+        data-endpoint-storage-key={wedding.accessGate.endpointStorageKey}
+      >
         <input type="hidden" name="_subject" value="Wedding RSVP" />
 
         <div class="grid gap-6 md:grid-cols-2">
@@ -64,8 +69,56 @@ import SiteLayout from '../layouts/SiteLayout.astro';
           <textarea class="input-field min-h-32" name="notes"></textarea>
         </label>
 
-        <button class="button-primary mt-8 w-full sm:w-auto" type="submit">Submit RSVP</button>
+        <p id="rsvp-endpoint-status" class="mt-6 text-sm font-semibold text-coral" role="alert" hidden>
+          Unlock the site with your invite code before submitting your RSVP.
+        </p>
+
+        <button id="rsvp-submit" class="button-primary mt-8 w-full disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto" type="submit" disabled>
+          Submit RSVP
+        </button>
       </form>
     </div>
   </section>
+
+  <script is:inline>
+    (() => {
+      const initRsvpEndpoint = () => {
+        const form = document.getElementById('rsvp-form');
+        const submit = document.getElementById('rsvp-submit');
+        const status = document.getElementById('rsvp-endpoint-status');
+
+        if (!form || !submit || !status) return;
+
+        const endpointStorageKey = form.dataset.endpointStorageKey;
+
+        const setEndpoint = (endpoint) => {
+          if (!endpoint) return;
+
+          form.setAttribute('action', endpoint);
+          submit.disabled = false;
+          status.hidden = true;
+        };
+
+        setEndpoint(endpointStorageKey ? window.localStorage.getItem(endpointStorageKey) : '');
+
+        window.addEventListener('access-gate:unlocked', (event) => {
+          setEndpoint(event.detail?.endpoint);
+        });
+
+        form.addEventListener('submit', (event) => {
+          if (!form.getAttribute('action')) {
+            event.preventDefault();
+            submit.disabled = true;
+            status.hidden = false;
+          }
+        });
+      };
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initRsvpEndpoint, { once: true });
+      } else {
+        initRsvpEndpoint();
+      }
+    })();
+  </script>
 </SiteLayout>
