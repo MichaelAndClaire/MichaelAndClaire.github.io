@@ -146,7 +146,7 @@ export const wedding = {
         {
           question: 'Can I drive to the wedding?',
           answer:
-            'Please plan to take our shuttle between the YMCA main parking lot and the Mountainside Lodge (map to come). Mountainside Lodge has only limited parking, we will reserve parking for accessibility needs (please reach out if needed).,
+            'Please plan to take our shuttle between the YMCA main parking lot and the Mountainside Lodge (map to come). Mountainside Lodge has only limited parking, we will reserve parking for accessibility needs (please reach out if needed).',
         },
         {
           question: 'What time should I arrive?',
