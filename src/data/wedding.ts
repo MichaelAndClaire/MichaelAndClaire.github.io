@@ -14,8 +14,8 @@ export const wedding = {
     mapUrl: 'https://maps.google.com/',
   },
   hero: {
-    image: '/images/hero-placeholder.png',
-    alt: 'Illustrated outdoor wedding details with flowers and warm afternoon light',
+    image: '/images/mountain-lodge-illustrated-hero.jpg',
+    alt: 'Painterly mountain wedding scene with a rustic lodge, pines, benches, wildflowers, and snowy peaks',
   },
   accessGate: {
     enabled: true,

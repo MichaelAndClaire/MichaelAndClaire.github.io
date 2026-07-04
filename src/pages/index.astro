@@ -5,21 +5,31 @@ import { wedding } from '../data/wedding';
 
 <SiteLayout title="Michael & Claire" description="Wedding details, RSVP, travel, registry, and FAQ for Michael and Claire.">
   <section
-    class="relative min-h-[calc(86svh-5rem)] overflow-hidden bg-cover bg-center"
-    style={`background-image: linear-gradient(90deg, rgba(255, 248, 239, 0.96), rgba(255, 248, 239, 0.72), rgba(255, 248, 239, 0.1)), url('${wedding.hero.image}')`}
+    class="relative min-h-[calc(86svh-5rem)] overflow-hidden bg-cover bg-[position:58%_center] sm:bg-center"
+    style={`background-image: linear-gradient(90deg, rgba(18, 29, 27, 0.82), rgba(34, 48, 45, 0.58) 38%, rgba(34, 48, 45, 0.14) 72%), linear-gradient(0deg, rgba(18, 29, 27, 0.35), rgba(18, 29, 27, 0)), url('${wedding.hero.image}')`}
     aria-label={wedding.hero.alt}
   >
     <div class="section-shell flex min-h-[calc(86svh-5rem)] items-center py-14">
-      <div class="max-w-2xl">
-        <p class="eyebrow">We're getting married</p>
-        <h1 class="mt-5 font-display text-5xl font-bold leading-none text-ink sm:text-7xl">
+      <div class="max-w-2xl text-white">
+        <p class="text-xs font-bold uppercase tracking-[0.22em] text-butter">Mountain weekend</p>
+        <h1 class="mt-5 font-display text-5xl font-bold leading-none drop-shadow-sm sm:text-7xl">
           {wedding.couple.firstNames}
         </h1>
-        <p class="mt-6 text-xl font-semibold text-ink/80">{wedding.date.display}</p>
-        <p class="mt-2 text-lg text-ink/75">{wedding.location.venueName} · {wedding.location.cityState}</p>
+        <p class="mt-6 text-xl font-semibold text-white/90">{wedding.date.display}</p>
+        <p class="mt-2 text-lg text-white/82">{wedding.location.venueName} · {wedding.location.cityState}</p>
         <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-          <a class="button-primary" href="/rsvp">Send RSVP</a>
-          <a class="button-secondary" href="/schedule">See Schedule</a>
+          <a
+            class="focus-ring inline-flex min-h-12 items-center justify-center rounded-md bg-linen px-5 py-3 text-sm font-bold text-ink no-underline shadow-soft transition hover:-translate-y-0.5 hover:bg-butter"
+            href="/rsvp"
+          >
+            Send RSVP
+          </a>
+          <a
+            class="focus-ring inline-flex min-h-12 items-center justify-center rounded-md border-2 border-linen px-5 py-3 text-sm font-bold text-white no-underline transition hover:-translate-y-0.5 hover:bg-white/15"
+            href="/schedule"
+          >
+            See Schedule
+          </a>
         </div>
       </div>
     </div>

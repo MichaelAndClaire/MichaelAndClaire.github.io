@@ -22,14 +22,25 @@ const { accessGate } = wedding;
         </p>
         <form id="access-gate-form" class="mt-6">
           <label class="text-sm font-bold text-ink" for="access-code">Invite code</label>
-          <input
-            id="access-code"
-            class="input-field"
-            name="access-code"
-            type="password"
-            autocomplete="off"
-            required
-          />
+          <div class="relative mt-2">
+            <input
+              id="access-code"
+              class="input-field mt-0 pr-20"
+              name="access-code"
+              type="password"
+              autocomplete="off"
+              required
+            />
+            <button
+              id="access-code-visibility"
+              class="focus-ring absolute right-2 top-1/2 min-h-9 -translate-y-1/2 rounded-md px-3 text-sm font-bold text-ink/70 transition hover:bg-mist hover:text-ink"
+              type="button"
+              aria-controls="access-code"
+              aria-pressed="false"
+            >
+              Show
+            </button>
+          </div>
           <p id="access-gate-error" class="mt-3 text-sm font-semibold text-coral" role="alert" hidden>
             That code did not match. Check the invitation and try again.
           </p>
@@ -49,9 +60,10 @@ const { accessGate } = wedding;
         const page = document.getElementById('site-content');
         const form = document.getElementById('access-gate-form');
         const input = document.getElementById('access-code');
+        const visibilityButton = document.getElementById('access-code-visibility');
         const error = document.getElementById('access-gate-error');
 
-        if (!gate || !page || !form || !input || !error) return;
+        if (!gate || !page || !form || !input || !visibilityButton || !error) return;
 
         const expectedHash = gate.dataset.inviteHash;
         const storageKey = gate.dataset.storageKey;
@@ -258,6 +270,15 @@ const { accessGate } = wedding;
           showSite();
           return;
         }
+
+        visibilityButton.addEventListener('click', () => {
+          const isVisible = input.type === 'text';
+
+          input.type = isVisible ? 'password' : 'text';
+          visibilityButton.textContent = isVisible ? 'Show' : 'Hide';
+          visibilityButton.setAttribute('aria-pressed', String(!isVisible));
+          input.focus();
+        });
 
         form.addEventListener('submit', async (event) => {
           event.preventDefault();
