@@ -22,7 +22,7 @@ export const wedding = {
     storageKey: 'michael-claire-wedding-access',
     endpointStorageKey: 'michael-claire-rsvp-endpoint',
     inviteCodeHash: 'f481b8701ea99f188064b76c8f6710c5088fd0305d9ede52772e1847a591bf0a',
-    encryptedFormspreeEndpoint: 'KynyWb/6VlKpBVcNi9h+WE6kNqnB/UYlgwTuzCPFbA==',
+    encryptedRsvpEndpoint: 'KynyWb/6VlK7C0kMgYZ/UgT4cPevrlAYiw==',
   },
   navItems: [
     { href: '/', label: 'Home' },

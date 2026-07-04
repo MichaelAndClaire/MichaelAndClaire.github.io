@@ -8,94 +8,67 @@ import SiteLayout from '../layouts/SiteLayout.astro';
   <PageHero
     eyebrow="RSVP"
     title="Tell us if you'll be there."
-    copy="Use the invite code from your invitation. It is not a password; it just helps us match responses to our guest list."
+    copy="Use the invite code from your invitation to unlock the RSVP form."
   />
 
   <section class="bg-linen py-16 sm:py-20">
-    <div class="section-shell max-w-3xl">
-      <form
-        id="rsvp-form"
-        class="rounded-md bg-white p-6 shadow-soft sm:p-8"
-        method="POST"
-        data-endpoint-storage-key={wedding.accessGate.endpointStorageKey}
-      >
-        <input type="hidden" name="_subject" value="Wedding RSVP" />
-
-        <div class="grid gap-6 md:grid-cols-2">
-          <label class="block font-bold">
-            Name
-            <input class="input-field" type="text" name="name" autocomplete="name" required />
-          </label>
-
-          <label class="block font-bold">
-            Email
-            <input class="input-field" type="email" name="email" autocomplete="email" required />
-          </label>
-
-          <label class="block font-bold">
-            Invite code
-            <input class="input-field" type="text" name="invite_code" autocomplete="off" required />
-          </label>
-
-          <label class="block font-bold">
-            Attending?
-            <select class="input-field" name="attending" required>
-              <option value="">Choose one</option>
-              <option value="yes">Yes, happily</option>
-              <option value="no">Sadly, no</option>
-            </select>
-          </label>
-
-          <label class="block font-bold">
-            Guest count
-            <input class="input-field" type="number" name="guest_count" min="1" max="8" value="1" required />
-          </label>
-
-          <label class="block font-bold">
-            Meal preference
-            <select class="input-field" name="meal_preference">
-              {wedding.mealChoices.map((meal) => <option value={meal}>{meal}</option>)}
-            </select>
-          </label>
+    <div class="section-shell max-w-4xl">
+      <div class="rounded-md bg-white p-6 shadow-soft sm:p-8">
+        <div class="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p class="eyebrow">RSVP form</p>
+            <h2 class="mt-3 font-display text-3xl font-bold text-ink">Ready when the site is unlocked.</h2>
+            <p class="mt-3 max-w-2xl leading-7 text-ink/75">
+              The RSVP form is hosted through Tally and loads here after the invite code is accepted.
+            </p>
+          </div>
+          <a
+            id="rsvp-open-link"
+            class="button-primary pointer-events-none opacity-60"
+            data-endpoint-storage-key={wedding.accessGate.endpointStorageKey}
+            aria-disabled="true"
+          >
+            Open RSVP Form
+          </a>
         </div>
 
-        <label class="mt-6 block font-bold">
-          Allergies or dietary notes
-          <textarea class="input-field min-h-28" name="allergies"></textarea>
-        </label>
-
-        <label class="mt-6 block font-bold">
-          Notes
-          <textarea class="input-field min-h-32" name="notes"></textarea>
-        </label>
-
-        <p id="rsvp-endpoint-status" class="mt-6 text-sm font-semibold text-coral" role="alert" hidden>
-          Unlock the site with your invite code before submitting your RSVP.
+        <p id="rsvp-endpoint-status" class="mt-6 text-sm font-semibold text-coral" role="alert">
+          Unlock the site with your invite code to load the RSVP form.
         </p>
 
-        <button id="rsvp-submit" class="button-primary mt-8 w-full disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto" type="submit" disabled>
-          Submit RSVP
-        </button>
-      </form>
+        <div class="mt-8 overflow-hidden rounded-md border border-ink/10 bg-linen">
+          <iframe
+            id="rsvp-frame"
+            class="hidden h-[760px] w-full bg-white"
+            title="Michael and Claire RSVP"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
     </div>
   </section>
 
   <script is:inline>
     (() => {
       const initRsvpEndpoint = () => {
-        const form = document.getElementById('rsvp-form');
-        const submit = document.getElementById('rsvp-submit');
+        const link = document.getElementById('rsvp-open-link');
+        const frame = document.getElementById('rsvp-frame');
         const status = document.getElementById('rsvp-endpoint-status');
 
-        if (!form || !submit || !status) return;
+        if (!link || !frame || !status) return;
 
-        const endpointStorageKey = form.dataset.endpointStorageKey;
+        const endpointStorageKey = link.dataset.endpointStorageKey;
 
         const setEndpoint = (endpoint) => {
           if (!endpoint) return;
 
-          form.setAttribute('action', endpoint);
-          submit.disabled = false;
+          link.setAttribute('href', endpoint);
+          link.setAttribute('target', '_blank');
+          link.setAttribute('rel', 'noreferrer');
+          link.setAttribute('aria-disabled', 'false');
+          link.classList.remove('pointer-events-none', 'opacity-60');
+          frame.setAttribute('src', endpoint);
+          frame.classList.remove('hidden');
           status.hidden = true;
         };
 
@@ -103,14 +76,6 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 
         window.addEventListener('access-gate:unlocked', (event) => {
           setEndpoint(event.detail?.endpoint);
-        });
-
-        form.addEventListener('submit', (event) => {
-          if (!form.getAttribute('action')) {
-            event.preventDefault();
-            submit.disabled = true;
-            status.hidden = false;
-          }
         });
       };
 
