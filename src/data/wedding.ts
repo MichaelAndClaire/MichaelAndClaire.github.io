@@ -92,13 +92,13 @@ export const wedding = {
   gallery: {
     photographer: 'Boulder Mouse Photography / Anya Rudaya',
     credit:
-      'A huge thank you to Boulder Mouse Photography (Anya Rudaya and Charlie Rackson) for taking our engagement pictures! We think you can guess which were professionally done!',
+      'A huge thank you to Boulder Mouse Photography (Anya Rudaya and Charlie Rackson) for taking our engagement pictures! We think you can guess which were professionally done...',
     images: phoneGalleryImages,
   },
   coloradoFavorites: [
     {
       region: 'Longmont / Lyons',
-      items: ['Hidden Cafe', 'The Roost', 'Casa Agave', 'Main Stage Pizzeria'],
+      items: ['Hidden Cafe', 'Babettes Boulangerie & Patisserie', 'The Roost', 'Casa Agave', 'Main Stage Pizzeria', 'St. Vrain Market'],
     },
     {
       region: 'Estes Park',
@@ -116,7 +116,7 @@ export const wedding = {
         {
           question: 'Do I need to get a rental car?',
           answer:
-            'Not necessarily, but we recommend it if you want to explore. You can book shuttles from Denver Airport to Estes Park, including to the Y and other hotels, and we will have a shuttle to and from the Y parking lot and the wedding venue. Free shuttles are available around Estes Park and the RMNP. Lyft and Uber are unfortunately limited.',
+            'Not necessarily, but we recommend it if you want to explore. You can book shuttles from Denver Airport to Estes Park, including to the Y and other hotels, and we will have a shuttle to and from the Y parking lot and the wedding venue. Free shuttles are available around Estes Park and RMNP. Lyft and Uber are unfortunately limited.',
         },
         {
           question: 'Will you have a hotel block?',
@@ -124,9 +124,9 @@ export const wedding = {
             'No, we will not have a hotel block. Our first recommendation is staying at the Y itself, for its proximity, affordability, and awesome on-site activities. However, if staying at the Y is not your preference, there are many good options in and around Estes Park, with cheaper options in Longmont or Loveland, about 45 minutes away. Summer brings lots of national park visitors, so we recommend booking lodging ASAP. The Travel and Lodging page has more details.',
         },
         {
-          question: 'What should I know about elevation?',
+          question: 'What's the elevation?',
           answer:
-            'Estes Park is just over 7,500 feet and our wedding venue is about 8,700 feet above sea level. Elevation sickness is a potential risk. If you may be sensitive, consider arriving a day or two early and acclimating in lower Front Range cities like Longmont or Boulder. Also, staying hydrated is key!',
+            'Estes Park is just over 7,500 feet and our wedding venue is about 8,700 feet above sea level. Elevation sickness is a potential risk. If you may be sensitive, consider arriving a day or two early and acclimating in lower Front Range cities like Longmont or Boulder (which are fun to explore anyway!). Also, staying hydrated is key!',
         },
       ],
     },
@@ -136,7 +136,7 @@ export const wedding = {
         {
           question: 'What is the dress code?',
           answer:
-            'Cocktail attire. A little bit fancy, with fun nods to our Colorado mountain venue encouraged! We strongly recommend a jacket for after-sunset temperatures, an umbrella/rain jacket just in case, and practical shoes for walking up and down the slope to our outdoor chapel (and for dancing of course).',
+            'Cocktail attire. Think a little bit fancy, with fun nods to the Colorado mountain location encouraged! We strongly recommend a jacket for after-sunset temperatures, an umbrella/rain jacket just in case, and practical shoes for walking up and down the slope to our outdoor chapel (and for dancing of course).',
         },
         {
           question: 'What about kids and plus-ones?',
@@ -146,7 +146,7 @@ export const wedding = {
         {
           question: 'Can I drive to the wedding?',
           answer:
-            'Please plan to take our shuttle between the YMCA main parking lot and the Mountainside Lodge (map to come). Mountainside Lodge has only limited parking, we will reserve parking for accessibility needs (please reach out if needed).',
+            'Please plan to take our shuttle between the YMCA main parking lot and the Mountainside Lodge (map to come). Mountainside Lodge has only limited parking; we will reserve parking for accessibility needs (please reach out if needed).',
         },
         {
           question: 'What time should I arrive?',
@@ -154,7 +154,7 @@ export const wedding = {
         },
         {
           question: 'Open bar?',
-          answer: 'We may be getting married at a YMCA, but we are gonna throw down.',
+          answer: 'Yes! We may be getting married at a YMCA, but we are gonna throw down.',
         },
         {
           question: 'You are getting married outside. What about bad weather?',
