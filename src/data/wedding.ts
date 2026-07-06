@@ -124,7 +124,7 @@ export const wedding = {
             'No, we will not have a hotel block. Our first recommendation is staying at the Y itself, for its proximity, affordability, and awesome on-site activities. However, if staying at the Y is not your preference, there are many good options in and around Estes Park, with cheaper options in Longmont or Loveland, about 45 minutes away. Summer brings lots of national park visitors, so we recommend booking lodging ASAP. The Travel and Lodging page has more details.',
         },
         {
-          question: 'What's the elevation?',
+          question: "What's the elevation?",
           answer:
             'Estes Park is just over 7,500 feet and our wedding venue is about 8,700 feet above sea level. Elevation sickness is a potential risk. If you may be sensitive, consider arriving a day or two early and acclimating in lower Front Range cities like Longmont or Boulder (which are fun to explore anyway!). Also, staying hydrated is key!',
         },
