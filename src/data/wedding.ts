@@ -1,3 +1,12 @@
+const engagementGalleryImages = Array.from({ length: 24 }, (_, index) => {
+  const photoNumber = index + 1;
+
+  return {
+    src: `/images/gallery/engagement/engagement-${String(photoNumber).padStart(2, '0')}.webp`,
+    alt: `Michael and Claire engagement photo ${photoNumber}`,
+  };
+});
+
 const phoneGalleryImages = Array.from({ length: 41 }, (_, index) => {
   const photoNumber = index + 1;
 
@@ -93,7 +102,7 @@ export const wedding = {
     photographer: 'Boulder Mouse Photography / Anya Rudaya',
     credit:
       'A huge thank you to Boulder Mouse Photography (Anya Rudaya and Charlie Rackson) for taking our engagement pictures! We think you can guess which were professionally done...',
-    images: phoneGalleryImages,
+    images: [...engagementGalleryImages, ...phoneGalleryImages],
   },
   coloradoFavorites: [
     {
