@@ -7,11 +7,11 @@ const engagementGalleryImages = Array.from({ length: 24 }, (_, index) => {
   };
 });
 
-const phoneGalleryImages = Array.from({ length: 41 }, (_, index) => {
+const phoneGalleryImages = Array.from({ length: 20 }, (_, index) => {
   const photoNumber = index + 1;
 
   return {
-    src: `/images/gallery/phone-pics/phone-${String(photoNumber).padStart(2, '0')}.jpg`,
+    src: `/images/gallery/phone-pics/phone-${String(photoNumber).padStart(2, '0')}.webp`,
     alt: `Michael and Claire phone photo ${photoNumber}`,
   };
 });

@@ -11,22 +11,22 @@ import SiteLayout from '../layouts/SiteLayout.astro';
   />
 
   <section class="bg-white py-16 sm:py-20">
-    <div class="section-shell grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-start">
-      <div class="rounded-md bg-mist p-6 shadow-soft sm:p-8">
-        <p class="eyebrow">Photo credit</p>
-        <h2 class="mt-4 font-display text-3xl font-bold">{wedding.gallery.photographer}</h2>
-        <p class="mt-4 leading-7 text-ink/75">{wedding.gallery.credit}</p>
-        <p class="mt-6 text-sm font-semibold text-ink/60">
-        </p>
-      </div>
-
-      <div class="columns-1 gap-5 sm:columns-2 xl:columns-3">
+    <div class="section-shell max-w-[90rem]">
+      <div class="columns-1 gap-5 sm:columns-2 lg:columns-3 xl:columns-4">
         {wedding.gallery.images.map((image) => (
           <figure class="mb-5 break-inside-avoid overflow-hidden rounded-md bg-linen shadow-soft">
             <img class="w-full object-cover" src={image.src} alt={image.alt} loading="lazy" />
           </figure>
         ))}
       </div>
+    </div>
+  </section>
+
+  <section class="bg-mist py-12 sm:py-16">
+    <div class="section-shell max-w-4xl text-center">
+      <p class="eyebrow">Photo credit</p>
+      <h2 class="mt-4 font-display text-3xl font-bold sm:text-4xl">{wedding.gallery.photographer}</h2>
+      <p class="mx-auto mt-4 max-w-3xl leading-7 text-ink/75">{wedding.gallery.credit}</p>
     </div>
   </section>
 </SiteLayout>
