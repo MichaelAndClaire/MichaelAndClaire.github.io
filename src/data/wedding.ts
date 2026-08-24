@@ -163,12 +163,12 @@ export const wedding = {
         },
         {
           question: 'Open bar?',
-          answer: 'Yes! We may be getting married at a YMCA, but we are gonna throw down.',
+          answer: 'Yes! We may be getting married at a YMCA, but we are gonna throw down. Expect yummy mocktails too!',
         },
         {
           question: 'You are getting married outside. What about bad weather?',
           answer:
-            'The wedding ceremony will stay outside if it is not heavily raining. Please bring an umbrella and/or a rain jacket. If the weather is really bad, we will move inside. The reception will be in a covered pavilion',
+            'The wedding ceremony will stay outside if it is not heavily raining. Please bring an umbrella and/or a rain jacket. If the weather is really bad, we will move inside. The reception will be in a covered pavilion.',
         },
       ],
     },
