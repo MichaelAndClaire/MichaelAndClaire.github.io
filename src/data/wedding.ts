@@ -1,9 +1,11 @@
-const engagementGalleryImages = Array.from({ length: 24 }, (_, index) => index + 1)
-  .filter((photoNumber) => photoNumber !== 14)
-  .map((photoNumber) => ({
+const engagementGalleryImages = Array.from({ length: 24 }, (_, index) => {
+  const photoNumber = index + 1;
+
+  return {
     src: `/images/gallery/engagement/engagement-${String(photoNumber).padStart(2, '0')}.webp`,
     alt: `Michael and Claire engagement photo ${photoNumber}`,
-  }));
+  };
+});
 
 const phoneGalleryImages = Array.from({ length: 20 }, (_, index) => {
   const photoNumber = index + 1;
@@ -31,8 +33,8 @@ export const wedding = {
       'https://www.google.com/maps/search/?api=1&query=Mountainside%20Lodge%20YMCA%20of%20the%20Rockies%20Estes%20Park%20CO',
   },
   hero: {
-    image: '/images/gallery/engagement/engagement-14.webp',
-    alt: 'Michael and Claire embracing on a mountain overlook at sunset',
+    image: '/images/mountain-lodge-illustrated-hero.jpg',
+    alt: 'Painterly mountain wedding scene with a rustic lodge, pines, benches, wildflowers, and snowy peaks',
   },
   accessGate: {
     enabled: true,
@@ -167,6 +169,10 @@ export const wedding = {
           question: 'You are getting married outside. What about bad weather?',
           answer:
             'The wedding ceremony will stay outside if it is not heavily raining. Please bring an umbrella and/or a rain jacket. If the weather is really bad, we will move inside. The reception will be in a covered pavilion with access to an indoor area.',
+        },
+{
+          question: 'Did you vibe code your own wedding website?',
+          answer: 'Um yes',
         },
       ],
     },
