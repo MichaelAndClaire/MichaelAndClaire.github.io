@@ -150,7 +150,7 @@ export const wedding = {
         {
           question: 'What about kids and plus-ones?',
           answer:
-            'We love kids and your plus ones; however, due to wedding size restrictions, we had to make some tough calls. Please see your wedding invitation for specifics or contact us.',
+            'We love your kids and your significant others; however, due to wedding size restrictions, we had to make some tough calls. Please see your wedding invitation for specifics or contact us.',
         },
         {
           question: 'Can I drive to the wedding?',
