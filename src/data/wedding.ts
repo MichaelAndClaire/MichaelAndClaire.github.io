@@ -125,7 +125,7 @@ export const wedding = {
         {
           question: 'Do I need to get a rental car?',
           answer:
-            'Not necessarily, but we recommend it if you want to explore. You can book shuttles from Denver Airport to Estes Park, including to the Y and other hotels, and we will have a shuttle to and from the Y parking lot and the wedding venue. Free shuttles are available around Estes Park and RMNP. Lyft and Uber are unfortunately limited.',
+            'Not necessarily, but we recommend it if you want to explore. You can book shuttles from Denver Airport to Estes Park (stayed tuned for a discount code), including to the Y and other hotels, and we will have a shuttle to and from the Y parking lot and the wedding venue. Free shuttles are available around Estes Park and RMNP. Lyft and Uber are unfortunately limited.',
         },
         {
           question: 'Will you have a hotel block?',
@@ -145,10 +145,10 @@ export const wedding = {
         {
           question: 'What is the dress code?',
           answer:
-            'Cocktail attire. Think a little bit fancy, with fun nods to the Colorado mountain location encouraged! We strongly recommend a jacket for after-sunset temperatures, an umbrella/rain jacket just in case, and practical shoes for walking up and down the slope to our outdoor chapel (and for dancing of course).',
+            'Semi-formal attire. Think a little bit fancy, with fun nods to the Colorado mountain location encouraged! We also strongly recommend a jacket for after-sunset temperatures, an umbrella/rain jacket just in case, and practical shoes for walking up and down the slope to our outdoor chapel (and for dancing of course).',
         },
         {
-          question: 'What about kids and plus-ones?',
+          question: 'What about kids and significant others?',
           answer:
             'We love your kids and your significant others; however, due to wedding size restrictions, we had to make some tough calls. Please see your wedding invitation for specifics or contact us.',
         },
@@ -168,7 +168,7 @@ export const wedding = {
         {
           question: 'You are getting married outside. What about bad weather?',
           answer:
-            'The wedding ceremony will stay outside if it is not heavily raining. Please bring an umbrella and/or a rain jacket. If the weather is really bad, we will move inside. The reception will be in a covered pavilion.',
+            'The wedding ceremony will stay outside if it is not heavily raining. Please bring an umbrella and/or a rain jacket. If the weather is really bad, we will move inside. The reception will be in a covered pavilion with access to an indoor area.',
         },
       ],
     },
