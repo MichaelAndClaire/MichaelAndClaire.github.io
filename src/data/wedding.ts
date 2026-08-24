@@ -1,11 +1,9 @@
-const engagementGalleryImages = Array.from({ length: 24 }, (_, index) => {
-  const photoNumber = index + 1;
-
-  return {
+const engagementGalleryImages = Array.from({ length: 24 }, (_, index) => index + 1)
+  .filter((photoNumber) => photoNumber !== 14)
+  .map((photoNumber) => ({
     src: `/images/gallery/engagement/engagement-${String(photoNumber).padStart(2, '0')}.webp`,
     alt: `Michael and Claire engagement photo ${photoNumber}`,
-  };
-});
+  }));
 
 const phoneGalleryImages = Array.from({ length: 20 }, (_, index) => {
   const photoNumber = index + 1;
@@ -33,8 +31,8 @@ export const wedding = {
       'https://www.google.com/maps/search/?api=1&query=Mountainside%20Lodge%20YMCA%20of%20the%20Rockies%20Estes%20Park%20CO',
   },
   hero: {
-    image: '/images/mountain-lodge-illustrated-hero.jpg',
-    alt: 'Painterly mountain wedding scene with a rustic lodge, pines, benches, wildflowers, and snowy peaks',
+    image: '/images/gallery/engagement/engagement-14.webp',
+    alt: 'Michael and Claire embracing on a mountain overlook at sunset',
   },
   accessGate: {
     enabled: true,
