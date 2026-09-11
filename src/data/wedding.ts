@@ -84,7 +84,7 @@ export const wedding = {
     },
     airport: 'Denver International Airport is the closest and usually cheapest airport. Plan on a 1.5 to 2 hour drive to Estes Park.',
     parking:
-      'Parking at Mountainside Lodge is limited. We will reserve lodge parking for accessibility needs and run a shuttle between a main YMCA parking lot and the lodge.',
+      'Parking at Mountainside Lodge is availible, but not unlimited. Please carpool.',
     transportation:
       'A rental car is not required, but it is recommended if you want to explore. Shuttles run from Denver Airport to Estes Park, and Uber, Lyft, taxis, and national park shuttles are available in town.',
     elevation:
@@ -125,7 +125,7 @@ export const wedding = {
         {
           question: 'Do I need to get a rental car?',
           answer:
-            'Not necessarily, but we recommend it if you want to explore. You can book shuttles from Denver Airport to Estes Park (stayed tuned for a discount code), including to the Y and other hotels, and we will have a shuttle to and from the Y parking lot and the wedding venue. Free shuttles are available around Estes Park and RMNP. Lyft and Uber are unfortunately limited.',
+            'Not necessarily, but we recommend it if you want to explore. You can book shuttles from Denver Airport to Estes Park (stayed tuned for a discount code), including to the Y and other hotels. Free shuttles are available around Estes Park and RMNP. Lyft and Uber are unfortunately limited.',
         },
         {
           question: 'Will you have a hotel block?',
@@ -155,11 +155,11 @@ export const wedding = {
         {
           question: 'Can I drive to the wedding?',
           answer:
-            'Please plan to take our shuttle between the YMCA main parking lot and the Mountainside Lodge (map to come). Mountainside Lodge has only limited parking; we will reserve parking for accessibility needs (please reach out if needed).',
+            'Yes! there is parking at the Mountainside Lodge where we will be getting married, but please carpool. ',
         },
         {
           question: 'What time should I arrive?',
-          answer: 'Please plan to arrive 30 minutes before the ceremony. Shuttles will be timed accordingly.',
+          answer: 'Please plan to arrive 20 minutes before the ceremony.',
         },
         {
           question: 'Open bar?',
